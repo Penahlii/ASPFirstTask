@@ -1,0 +1,22 @@
+﻿@model FastFoodListViewModel
+
+@{
+    ViewData["Title"] = "Fast Foods";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Fast Foods</h1>
+    <ul class="list-group">
+        @foreach (var fastFood in Model.FastFoods)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>@fastFood.Name</strong> - @fastFood.Price$
+                </div>
+                <span class="badge badge-primary">
+                    Calories: @fastFood.Calories
+                </span>
+            </li>
+        }
+    </ul>
+</div>

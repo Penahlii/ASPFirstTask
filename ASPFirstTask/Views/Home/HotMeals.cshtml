@@ -1,0 +1,22 @@
+﻿@model HotMealListViewModel
+
+@{
+    ViewData["Title"] = "Hot Meals";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Hot Meals</h1>
+    <ul class="list-group">
+        @foreach (var meal in Model.HotMeals)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>@meal.Name</strong> - @meal.Price$
+                </div>
+                <span class="badge badge-@((meal.IsVegetarian ? "success" : "primary"))">
+                    @((meal.IsVegetarian ? "Vegetarian" : "Non-Vegetarian"))
+                </span>
+            </li>
+        }
+    </ul>
+</div>

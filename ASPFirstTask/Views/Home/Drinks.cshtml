@@ -1,0 +1,22 @@
+﻿@model DrinkListViewModel
+
+@{
+    ViewData["Title"] = "Drinks";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Drinks</h1>
+    <ul class="list-group">
+        @foreach (var drink in Model.Drinks)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>@drink.Name</strong> - @drink.Price$
+                </div>
+                <span class="badge badge-@((drink.IsAlcoholic ? "danger" : "success"))">
+                    @((drink.IsAlcoholic ? "Alcoholic" : "Non-Alcoholic"))
+                </span>
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,48 @@
+﻿@model ASPFirstTask.Models.AllItemsViewModel
+
+@using Microsoft.AspNetCore.Hosting
+@{
+    ViewData["Title"] = "Menu Items";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Menu Items</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Drinks</h2>
+            <ul class="list-group">
+                @foreach (var drink in Model.Drinks)
+                {
+                    <li class="list-group-item">
+                        <strong>@drink.Name</strong> - @drink.Price$ <span class="badge badge-@((drink.IsAlcoholic ? "danger" : "success"))">@((drink.IsAlcoholic ? "Alcoholic" : "Non-Alcoholic"))</span>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-md-4">
+            <h2>Hot Meals</h2>
+            <ul class="list-group">
+                @foreach (var meal in Model.HotMeals)
+                {
+                    <li class="list-group-item">
+                        <strong>@meal.Name</strong> - @meal.Price$ <span class="badge badge-@((meal.IsVegetarian ? "success" : "primary"))">@((meal.IsVegetarian ? "Vegetarian" : "Non-Vegetarian"))</span>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-md-4">
+            <h2>Fast Foods</h2>
+            <ul class="list-group">
+                @foreach (var fastFood in Model.FastFoods)
+                {
+                    <li class="list-group-item">
+                        <strong>@fastFood.Name</strong> - @fastFood.Price$ <span class="badge badge-info">@fastFood.Calories Cal</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
